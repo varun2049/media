@@ -1,0 +1,99 @@
+/* static/css/styles.css */
+
+body {
+    background-color: black;
+    color: white;
+}
+
+input[type="text"] {
+    color: black;
+}
+
+header nav a {
+    transition: color 0.3s ease;
+}
+
+header nav a.underline {
+    text-decoration: underline;
+}
+
+header nav a:hover {
+    color: #1DA1F2; /* Twitter Blue */
+}
+
+#slideshow {
+    overflow: visible; /* Allow slides to overflow the container */
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 80%; /* Decreased width to show side slides */
+}
+
+.slide {
+    flex-shrink: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    position: relative;
+    z-index: 5;
+}
+
+.slide:nth-child(2) {
+    transform: scale(1.1) translateX(0);
+    z-index: 10;
+    opacity: 1;
+}
+
+.slide:nth-child(1),
+.slide:nth-child(3) {
+    transform: scale(0.8);
+    opacity: 0.7;
+    z-index: 5; /* Ensure they are behind the center slide */
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.grid-item {
+    width: 100%;
+    height: 200px;
+    background-color: #4a5568;
+    border-radius: 8px;
+}
+
+
+.expandable-section {
+    max-height: 800px; /* Display 3 rows initially */
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.expand-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.expand-button svg {
+    transition: transform 0.3s ease;
+}
+
+.expand-button.collapsed svg {
+    transform: rotate(180deg);
+}
+
+.expand-button.expanded svg {
+    transform: rotate(0deg);
+}
+
+.collapsed-section {
+    max-height: none; /* Allow full height when collapsed */
+}

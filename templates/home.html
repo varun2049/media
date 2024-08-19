@@ -1,0 +1,37 @@
+<!-- templates/home.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="relative mx-auto w-4/5 bg-transparent p-8 rounded-lg text-center">
+    <!-- Slideshow with arrows on the sides, no border, larger size -->
+    <div id="slideshow" class="relative flex items-center justify-center overflow-visible">
+        <!-- Slides -->
+        <div class="slide bg-red-500 w-1/3 h-96 rounded-lg transition-all duration-500 transform"></div>
+        <div class="slide bg-blue-500 w-2/3 h-96 rounded-lg transition-all duration-500 transform scale-110 z-10"></div>
+        <div class="slide bg-green-500 w-1/3 h-96 rounded-lg transition-all duration-500 transform"></div>
+    </div>
+
+    <!-- Buttons with actual arrows -->
+    <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center z-20">
+        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0l4 4M1 5l4-4"/>
+        </svg>
+        <span class="sr-only">Previous Slide</span>
+    </button>
+    <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center z-20">
+        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+        </svg>
+        <span class="sr-only">Next Slide</span>
+    </button>
+</div>
+
+<div class="mt-24 text-center">
+    <p class="text-xl mb-4">Try Advanced Search Now.</p>
+    <form action="{{ url_for('search') }}" method="get" class="flex justify-center">
+        <input type="text" name="query" placeholder="Type Query..." class="w-1/2 p-4 rounded-full border-2 border-gray-300 text-black focus:outline-none">
+        <button type="submit" class="ml-2 bg-blue-500 text-white p-4 rounded-full">Search</button>
+    </form>
+</div>
+{% endblock %}

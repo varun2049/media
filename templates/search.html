@@ -1,0 +1,41 @@
+<!-- templates/search.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<form action="{{ url_for('search') }}" method="get" class="flex justify-center mb-8">
+    <input type="text" name="query" placeholder="Type Query..." class="w-1/2 p-4 rounded-full border-2 border-gray-300 text-black focus:outline-none">
+    <button type="submit" class="ml-2 bg-blue-500 text-white p-4 rounded-full">Search</button>
+</form>
+
+<h2 class="section-title">Explore Media</h2>
+<p class="mb-4">Showing results for "{{ query }}"</p>
+
+<h2 class="section-title">Movies</h2>
+<div class="expandable-section" id="movies-section">
+    <div class="grid-container" id="movies-grid">
+        {% for i in range(12) %}
+        <div class="grid-item"></div>
+        {% endfor %}
+    </div>
+</div>
+<div class="expand-button" id="movies-expand-button" data-target="movies-section">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+</div>
+
+<h2 class="section-title">Animes</h2>
+<div class="expandable-section" id="animes-section">
+    <div class="grid-container" id="animes-grid">
+        {% for i in range(12) %}
+        <div class="grid-item"></div>
+        {% endfor %}
+    </div>
+</div>
+<div class="expand-button" id="animes-expand-button" data-target="animes-section">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+</div>
+{% endblock %}
